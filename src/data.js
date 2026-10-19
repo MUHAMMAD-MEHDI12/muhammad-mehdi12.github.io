@@ -2,8 +2,7 @@
 
 export const profile = {
   name: 'Muhammad Mehdi',
-  statement:
-    'I study how much water the glacier-fed Upper Indus Basin holds, and whether global climate datasets get it right.',
+  title: 'Geospatial researcher in satellite hydrology, remote sensing and GeoAI for Earth observation',
   intro:
     'I am a BS Geography student at the University of the Punjab, Lahore, and an undergraduate research intern at the GeoScape Analytics Lab. My work combines satellite gravimetry (GRACE/GRACE-FO), remote sensing and GeoAI for Earth observation to understand water, snow and glaciers in the Hindu Kush–Karakoram–Himalaya.',
   seeking:

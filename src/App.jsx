@@ -1,4 +1,3 @@
-import GraceChart from './Chart.jsx'
 import { profile, thesis, manuscripts, projects, timeline, skills, certificates, events, certificateFolder } from './data.js'
 
 function Authors({ text }) {
@@ -36,7 +35,8 @@ export default function App() {
       <main id="main">
         <section className="hero wrap">
           <div className="hero-text">
-            <h1>{profile.statement}</h1>
+            <h1>{profile.name}</h1>
+            <p className="role">{profile.title}</p>
             <p className="lede">{profile.intro}</p>
             <p className="seeking">{profile.seeking}</p>
             <div className="actions">
@@ -45,10 +45,6 @@ export default function App() {
             </div>
           </div>
           <img className="portrait" src={profile.photo} alt="Portrait of Muhammad Mehdi" width="220" height="220" />
-        </section>
-
-        <section className="wrap wide" aria-label="Data from my thesis">
-          <GraceChart />
         </section>
 
         <section id="research" className="wrap section">
