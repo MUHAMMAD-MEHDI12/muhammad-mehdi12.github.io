@@ -11,6 +11,7 @@ export const profile = {
   linkedin: 'https://linkedin.com/in/muhammad-mehdi-2726872a7',
   cv: 'Muhammad_Mehdi_CV.pdf',
   photo: 'photo.png',
+  lab: 'https://geoscapeanalyticslab.github.io/',
 }
 
 export const thesis = {
@@ -89,9 +90,15 @@ export const projects = [
 export const timeline = [
   {
     when: 'Apr 2026 – present',
-    what: 'Undergraduate Research Intern, GeoScape Analytics Lab, Lahore',
-    detail: 'Satellite data analysis with Google Earth Engine, Python and machine learning, including snow cover and glacier-fed runoff in the Indus basin; GeoAI for climate-change monitoring; web maps, dashboards and the lab website.',
+    what: 'Undergraduate Research Intern, GeoScape Analytics Lab (GSAL), University of the Punjab, Lahore',
     link: 'https://geoscapeanalyticslab.github.io/',
+    linkText: 'Visit the GeoScape Analytics Lab website',
+    bullets: [
+      'Working on snow cover and glacier-fed runoff in the Indus basin with Google Earth Engine, Python and machine learning.',
+      'Applying GeoAI and machine-learning methods (CNNs) to satellite data for climate-change monitoring.',
+      'Analysed Urban Dry and Wet Island effects and groundwater dynamics with remote sensing and spatial analysis.',
+      'Co-developed GRIPS, the lab’s literature-search app, and built web maps, dashboards and the lab’s official website.',
+    ],
   },
   {
     when: 'Sep 2023 – Jun 2027 (expected)',

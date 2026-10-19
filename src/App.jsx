@@ -1,4 +1,28 @@
+import { useEffect, useState } from 'react'
 import { profile, thesis, manuscripts, projects, timeline, skills, certificates, events, certificateFolder } from './data.js'
+
+function LabLinked({ text }) {
+  const key = 'GeoScape Analytics Lab'
+  const parts = text.split(key)
+  return (
+    <>
+      {parts.map((p, i) => (
+        <span key={i}>
+          {p}
+          {i < parts.length - 1 && <a href={profile.lab} target="_blank" rel="noreferrer">{key}</a>}
+        </span>
+      ))}
+    </>
+  )
+}
+
+function getInitialTheme() {
+  try {
+    const saved = localStorage.getItem('theme')
+    if (saved === 'light' || saved === 'dark') return saved
+  } catch (e) {}
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+}
 
 function Authors({ text }) {
   const parts = text.split('Mehdi, M.')
@@ -15,12 +39,18 @@ function Authors({ text }) {
 }
 
 export default function App() {
+  const [theme, setTheme] = useState(getInitialTheme)
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    try { localStorage.setItem('theme', theme) } catch (e) {}
+  }, [theme])
+  const next = theme === 'dark' ? 'light' : 'dark'
+
   return (
     <>
       <a className="skip" href="#main">Skip to content</a>
       <header className="top">
         <div className="wrap top-inner">
-          <a className="brand" href="#">{profile.name}</a>
           <nav aria-label="Sections">
             <a href="#research">Research</a>
             <a href="#writing">Manuscripts</a>
@@ -29,6 +59,9 @@ export default function App() {
             <a href="#contact">Contact</a>
             <a className="nav-cv" href={profile.cv} download>CV</a>
           </nav>
+          <button className="theme" type="button" onClick={() => setTheme(next)} aria-label={`Switch to ${next} mode`}>
+            {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          </button>
         </div>
       </header>
 
@@ -37,7 +70,7 @@ export default function App() {
           <div className="hero-text">
             <h1>{profile.name}</h1>
             <p className="role">{profile.title}</p>
-            <p className="lede">{profile.intro}</p>
+            <p className="lede"><LabLinked text={profile.intro} /></p>
             <p className="seeking">{profile.seeking}</p>
             <div className="actions">
               <a className="btn primary" href={profile.cv} download>Download CV</a>
@@ -91,10 +124,14 @@ export default function App() {
               <li key={t.what}>
                 <span className="when">{t.when}</span>
                 <div>
-                  <p className="entry-title">
-                    {t.link ? <a href={t.link} target="_blank" rel="noreferrer">{t.what}</a> : t.what}
-                  </p>
-                  <p>{t.detail}</p>
+                  <p className="entry-title">{t.what}</p>
+                  {t.detail && <p>{t.detail}</p>}
+                  {t.bullets && (
+                    <ul className="bullets">
+                      {t.bullets.map((b) => <li key={b}>{b}</li>)}
+                    </ul>
+                  )}
+                  {t.link && <a href={t.link} target="_blank" rel="noreferrer">{t.linkText}</a>}
                 </div>
               </li>
             ))}
