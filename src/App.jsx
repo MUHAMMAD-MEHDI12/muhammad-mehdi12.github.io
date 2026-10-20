@@ -196,6 +196,7 @@ export default function App() {
 
       <footer className="wrap foot">
         <p>© {new Date().getFullYear()} Muhammad Mehdi, Lahore, Pakistan</p>
+        <p className="credit">Background: Passu Cones above the Hunza River, Gilgit-Baltistan.</p>
       </footer>
     </>
   )
