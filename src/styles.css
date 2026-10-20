@@ -182,12 +182,16 @@ a:hover { color: var(--silt); }
 }
 
 .theme {
-  font: 500 14px var(--sans);
-  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  color: var(--indus);
   background: var(--paper);
   border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 6px 14px;
+  border-radius: 50%;
   cursor: pointer;
 }
 .theme:hover { border-color: var(--indus); }
